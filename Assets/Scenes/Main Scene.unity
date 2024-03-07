@@ -934,7 +934,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player 1: 5:45'
+  m_text: 'Player 1: 5:45
+
+    Player 2: 6:40
+
+    Player 3: 6:59
+
+    Player 4:
+    7:23
+
+    Player 5: 8:12'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc41d5815b9a5bb48be4c84a746c4ff6, type: 2}
   m_sharedMaterial: {fileID: 7032093815205813286, guid: fc41d5815b9a5bb48be4c84a746c4ff6, type: 2}
