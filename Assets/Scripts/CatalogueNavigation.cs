@@ -13,8 +13,8 @@ public class CatalogueNavigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string title = InformationText[0].text.Split(',')[0];
-        string information = InformationText[0].text.Split(',')[0];
+        string title = InformationText[0].text.Split('@')[0];
+        string information = InformationText[0].text.Split('@')[0];
         Title.text = title;
         Information.text = information;
     }
@@ -23,5 +23,13 @@ public class CatalogueNavigation : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeInformation(int section)
+    {
+        string title = InformationText[section].text.Split('@')[0];
+        string information = InformationText[section].text.Split('@')[0];
+        Title.text = title;
+        Information.text = information;
     }
 }
