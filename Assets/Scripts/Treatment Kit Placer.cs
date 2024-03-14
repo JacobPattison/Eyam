@@ -8,7 +8,7 @@ public class TreatmentKitPlacer : MonoBehaviour
     {
         if (other.tag == "Treatment Kit")
         {
-
+            GameManager.PatientsHealed++;
         }
     }
 }
