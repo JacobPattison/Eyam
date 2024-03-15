@@ -33,7 +33,10 @@ public class TreatmentKit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Grabbed = true;
-        Controller = other.gameObject.transform;
+        if (other.tag == "GameController")
+        {
+            Grabbed = true;
+            Controller = other.gameObject.transform;
+        }
     }
 }
