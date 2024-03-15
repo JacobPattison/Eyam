@@ -10,15 +10,15 @@ public class GameManager : MonoBehaviour
     public static bool IsPlaying = false;
     public static int PatientsHealed;
     public float CurrentTime;
+    public int PatientAmount;
 
     void Update()
     {
         if (IsPlaying)
         {
-            if (PatientsHealed >= 2)
+            if (PatientsHealed >= PatientAmount)
             {
-                IsPlaying = false;
-                Instantiate(UsernameInputPrefab, new Vector3(2.10f, 0.41f, -0.04f), Quaternion.identity);
+                EndGame();
             }
             else
             {
@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
         PatientsHealed = 0;
         CurrentTime = 0.0f;
         SpawnPatients();
+    }
+
+    public void EndGame()
+    {
+        IsPlaying = false;
+        Instantiate(UsernameInputPrefab, new Vector3(2.10f, 0.41f, -0.04f), Quaternion.identity);
     }
 
     public void SpawnPatients()

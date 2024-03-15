@@ -19,12 +19,6 @@ public class CatalogueNavigation : MonoBehaviour
         Information.text = information;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ChangeInformation(int section)
     {
         string title = InformationText[section].text.Split('@')[0];

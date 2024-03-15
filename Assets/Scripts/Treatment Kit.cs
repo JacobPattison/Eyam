@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class TreatmentKit : MonoBehaviour
 {
-    GameObject StartTransform;
+    GameObject UpdateTransform;
     Transform Controller;
     static public bool Grabbed;
 
     void Start()
     {
-        StartTransform = new GameObject();
-        StartTransform.transform.position = transform.position;
-        StartTransform.transform.rotation = transform.rotation;
+        UpdateTransform = new GameObject();
+        UpdateTransform.transform.position = transform.position;
+        UpdateTransform.transform.rotation = transform.rotation;
     }
 
     void Update()
@@ -24,9 +24,11 @@ public class TreatmentKit : MonoBehaviour
         }
         else
         {
-            transform.position = StartTransform.transform.position;
-            transform.rotation = StartTransform.transform.rotation;
+            transform.position = UpdateTransform.transform.position;
+            transform.rotation = UpdateTransform.transform.rotation;
         }
+        UpdateTransform.transform.position = transform.position;
+        UpdateTransform.transform.rotation = transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)

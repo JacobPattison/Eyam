@@ -6,7 +6,7 @@ public class ControllerGrab : MonoBehaviour
 {
     void Update()
     {
-        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+        if (OVRInput.Get(OVRInput.Button.Two))
         {
             if(TreatmentKit.Grabbed)
             {

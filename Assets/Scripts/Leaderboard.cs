@@ -6,17 +6,14 @@ using UnityEngine;
 public class Leaderboard : MonoBehaviour
 {
     public TMPro.TMP_Text LeaderboardText;
-    public List<string> players = new List<string>();
+    public static List<string> players = new List<string>();
 
-    // Start is called before the first frame update
-    void Start()
+    public void UpdateLeaderboard()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for(int player = 0; player < 10; player++)
+        {
+            string[] record = players[player].Split('|');
+            LeaderboardText.text = record[0] + ": " + record[1];
+        }
     }
 }

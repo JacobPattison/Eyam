@@ -18,6 +18,10 @@ public class Keyboard : MonoBehaviour
         {
             Text = Text + ' ';
         }
+        else if (character == '&')
+        {
+            Leaderboard.players.Add(Text + ": " + "10:00");
+        }
         else
         {
             Text = Text + character;
