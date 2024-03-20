@@ -6,12 +6,14 @@ public class ControllerGrab : MonoBehaviour
 {
     void Update()
     {
-        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
+        float triggerRight = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger);
+        if (triggerRight > 0.9f)
         {
-            if(TreatmentKit.Grabbed)
-            {
-                TreatmentKit.Grabbed = false;
-            }
+            TreatmentKit.Grabbed = true;
+        }
+        if (triggerRight < 0.1f)
+        {
+            TreatmentKit.Grabbed = false;
         }
     }
 }

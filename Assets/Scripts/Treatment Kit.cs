@@ -33,13 +33,16 @@ public class TreatmentKit : MonoBehaviour
         UpdateTransform.transform.rotation = transform.rotation;
     }
 
-    private void OnCollisonEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "GameController")
         {
             Grabbed = true;
             Controller = other.gameObject.transform;
-            DebugText.text += "\r\nTrigger entered";
+            DebugText.text += "\r\nTrigger entered by tag";
         }
+        Grabbed = true;
+        Controller = other.gameObject.transform;
+        DebugText.text += "\r\nTrigger entered not by tag";
     }
 }
