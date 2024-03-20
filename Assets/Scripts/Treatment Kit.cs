@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TreatmentKit : MonoBehaviour
 {
+    public TMPro.TMP_Text DebugText;
     GameObject UpdateTransform;
     Transform Controller;
     static public bool Grabbed;
@@ -13,6 +14,7 @@ public class TreatmentKit : MonoBehaviour
         UpdateTransform = new GameObject();
         UpdateTransform.transform.position = transform.position;
         UpdateTransform.transform.rotation = transform.rotation;
+        DebugText.text += "\n\rUpdate transform set";
     }
 
     void Update()
@@ -31,12 +33,13 @@ public class TreatmentKit : MonoBehaviour
         UpdateTransform.transform.rotation = transform.rotation;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisonEnter(Collider other)
     {
         if (other.tag == "GameController")
         {
             Grabbed = true;
             Controller = other.gameObject.transform;
+            DebugText.text += "\r\nTrigger entered";
         }
     }
 }
