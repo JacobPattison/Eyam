@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject PatientPrefab;
     public GameObject UsernameInputPrefab;
+    public GameObject TreatmentKitPrefab;
 
     public TMPro.TMP_Text CurrentTimeText;
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         PatientsHealed = 0;
         CurrentTime = 0.0f;
         SpawnPatients();
+        SpawnTreatmentKits(PatientAmount);
     }
 
     public void EndGame()
@@ -63,6 +65,14 @@ public class GameManager : MonoBehaviour
         for (int patient = 0; patient < PatientAmount; patient++)
         {
             Instantiate(PatientPrefab, PatientSpawnPoints[patient], Quaternion.identity);
+        }
+    }
+
+    public void SpawnTreatmentKits(int amount)
+    {
+        for (int treatmentKit = 0; treatmentKit < amount; treatmentKit++)
+        {
+            Instantiate(TreatmentKitPrefab, new Vector3(0.3f, 0.7f, -2.5f), Quaternion.identity);
         }
     }
 }
