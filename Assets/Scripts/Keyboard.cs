@@ -14,19 +14,15 @@ public class Keyboard : MonoBehaviour
         {
             Text = Text.Substring (0, Text.Length - 1);
         }
-        else if (character == '#') // Space
+        else if (character == '&') // Enter
         {
-            Text = Text + ' ';
+            Leaderboard.players.Add(Text + ": " + GameManager.CurrentTime.ToString("0:00"));
+            // Need to update leaderboard here
         }
-        else if (character == '&')
-        {
-            Leaderboard.players.Add(Text + ": " + "10:00");
-        }
-        else
+        else // Character
         {
             Text = Text + character;
         }
-
         NameText.text = Text;
     }
 

@@ -319,8 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed1a6300134dfd428114271be32a620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeaderboardText: {fileID: 0}
-  players: []
+  LeaderboardText: {fileID: 2592750871456025479}
 --- !u!1 &7207927164360725372
 GameObject:
   m_ObjectHideFlags: 0

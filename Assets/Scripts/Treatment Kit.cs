@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TreatmentKit : MonoBehaviour
 {
-    public TMPro.TMP_Text DebugText;
     GameObject UpdateTransform;
     Transform Controller;
     static public bool Grabbed;
@@ -14,7 +13,6 @@ public class TreatmentKit : MonoBehaviour
         UpdateTransform = new GameObject();
         UpdateTransform.transform.position = transform.position;
         UpdateTransform.transform.rotation = transform.rotation;
-        DebugText.text += "\n\rUpdate transform set";
     }
 
     void Update()
@@ -39,10 +37,6 @@ public class TreatmentKit : MonoBehaviour
         {
             Grabbed = true;
             Controller = other.gameObject.transform;
-            DebugText.text += "\r\nTrigger entered by tag";
         }
-        Grabbed = true;
-        Controller = other.gameObject.transform;
-        DebugText.text += "\r\nTrigger entered not by tag";
     }
 }

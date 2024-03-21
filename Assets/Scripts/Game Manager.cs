@@ -7,10 +7,26 @@ public class GameManager : MonoBehaviour
     public GameObject PatientPrefab;
     public GameObject UsernameInputPrefab;
 
+    public TMPro.TMP_Text CurrentTimeText;
+
     public static bool IsPlaying = false;
     public static int PatientsHealed;
-    public float CurrentTime;
+    public static float CurrentTime;
     public int PatientAmount;
+
+    public Vector3[] PatientSpawnPoints;
+
+    private void Start()
+    {
+        PatientSpawnPoints = new Vector3[6];
+        PatientSpawnPoints[0] = new Vector3(1.6f, 0.5f, -5.28800011f);
+        PatientSpawnPoints[1] = new Vector3(-1.6f, 0.5f, -5.28800011f);
+        PatientSpawnPoints[2] = new Vector3(1.6f, 0.5f, -6.84399986f);
+        PatientSpawnPoints[3] = new Vector3(-1.6f, 0.5f, -6.84399986f);
+        PatientSpawnPoints[4] = new Vector3(1.6f, 0.5f, -8.30500031f);
+        PatientSpawnPoints[5] = new Vector3(-1.6f, 0.5f, -8.30500031f);
+        PatientAmount = 6;
+    }
 
     void Update()
     {
@@ -23,6 +39,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 CurrentTime += Time.deltaTime;
+                CurrentTimeText.text = "Time: " + CurrentTime.ToString("0:00");
             }
         }
     }
@@ -43,7 +60,9 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPatients()
     {
-        Instantiate(PatientPrefab, new Vector3(-0.73f, 0f, -1.41f), Quaternion.identity);
-        Instantiate(PatientPrefab, new Vector3(0.23f, 0, -1.41f), Quaternion.identity);
+        for (int patient = 0; patient < PatientAmount; patient++)
+        {
+            Instantiate(PatientPrefab, PatientSpawnPoints[patient], Quaternion.identity);
+        }
     }
 }
