@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ControllerGrab : MonoBehaviour
 {
+    public static bool IsGrabbing;
     void Update()
     {
-        float triggerRight = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger);
-        if (triggerRight > 0.9f)
+        float triggerRight = OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger);
+        if (triggerRight > 0.9f && TreatmentKit.Triggered == true)
         {
-            TreatmentKit.Grabbed = true;
+            IsGrabbing = true;
         }
         if (triggerRight < 0.1f)
         {
-            TreatmentKit.Grabbed = false;
+            IsGrabbing = false;
         }
     }
 }

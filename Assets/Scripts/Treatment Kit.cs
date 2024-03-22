@@ -6,7 +6,7 @@ public class TreatmentKit : MonoBehaviour
 {
     GameObject UpdateTransform;
     Transform Controller;
-    static public bool Grabbed;
+    static public bool Triggered;
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class TreatmentKit : MonoBehaviour
 
     void Update()
     {
-        if (Grabbed)
+        if (ControllerGrab.IsGrabbing && Triggered)
         {
             transform.position = Controller.transform.position;
             transform.rotation = Controller.transform.rotation;
@@ -31,12 +31,20 @@ public class TreatmentKit : MonoBehaviour
         UpdateTransform.transform.rotation = transform.rotation;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "GameController")
         {
-            Grabbed = true;
-            Controller = other.gameObject.transform;
+            Triggered = true;
+            //Controller = other.gameObject.transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "GameController")
+        {
+            Triggered = false;
         }
     }
 }

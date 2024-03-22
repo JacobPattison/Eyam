@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject TreatmentKitPrefab;
 
     public TMPro.TMP_Text CurrentTimeText;
+    public TMPro.TMP_Text DebugText;
 
     public static bool IsPlaying = false;
     public static int PatientsHealed;
@@ -16,6 +17,11 @@ public class GameManager : MonoBehaviour
     public int PatientAmount;
 
     public Vector3[] PatientSpawnPoints;
+
+    private void DebugLog(string text)
+    {
+        DebugText.text += "\r\n" + text;
+    }
 
     private void Start()
     {
@@ -27,6 +33,7 @@ public class GameManager : MonoBehaviour
         PatientSpawnPoints[4] = new Vector3(1.6f, 0.5f, -8.30500031f);
         PatientSpawnPoints[5] = new Vector3(-1.6f, 0.5f, -8.30500031f);
         PatientAmount = 6;
+        DebugLog("Start Script");
     }
 
     void Update()
@@ -47,17 +54,20 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        if (IsPlaying) return;
         IsPlaying = true;
         PatientsHealed = 0;
         CurrentTime = 0.0f;
         SpawnPatients();
         SpawnTreatmentKits(PatientAmount);
+        DebugLog("Start Game");
     }
 
     public void EndGame()
     {
         IsPlaying = false;
         Instantiate(UsernameInputPrefab, new Vector3(2.10f, 0.41f, -0.04f), Quaternion.identity);
+        DebugLog("End Game");
     }
 
     public void SpawnPatients()
@@ -65,6 +75,7 @@ public class GameManager : MonoBehaviour
         for (int patient = 0; patient < PatientAmount; patient++)
         {
             Instantiate(PatientPrefab, PatientSpawnPoints[patient], Quaternion.identity);
+            DebugLog("Patient Spawned");
         }
     }
 
@@ -72,7 +83,9 @@ public class GameManager : MonoBehaviour
     {
         for (int treatmentKit = 0; treatmentKit < amount; treatmentKit++)
         {
-            Instantiate(TreatmentKitPrefab, new Vector3(0.3f, 0.7f, -2.5f), Quaternion.identity);
+            float offSet = treatmentKit * 0.2f;
+            Instantiate(TreatmentKitPrefab, new Vector3(0.3f + offSet, 0.7f, -2.5f), Quaternion.identity);
+            DebugLog("Treatment Kit Spawned");
         }
     }
 }

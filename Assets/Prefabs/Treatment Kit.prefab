@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4161750462995742349}
   - component: {fileID: 8005264043061881159}
   - component: {fileID: 8508010790704387877}
-  - component: {fileID: 3593278816760647782}
+  - component: {fileID: 6484369906096644933}
   m_Layer: 0
   m_Name: Treatment Kit
   m_TagString: Treatment Kit
@@ -68,8 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44da22cf0be86440aea500b1b9b3c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugText: {fileID: 0}
---- !u!54 &3593278816760647782
+--- !u!54 &6484369906096644933
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,8 +90,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

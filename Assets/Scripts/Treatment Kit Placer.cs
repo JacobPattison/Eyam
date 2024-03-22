@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class TreatmentKitPlacer : MonoBehaviour
 {
+    public bool IsPlaced = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Treatment Kit")
+        if (other.tag == "Treatment Kit" && IsPlaced == false)
         {
             GameManager.PatientsHealed++;
+            IsPlaced = true;
+            other.gameObject.transform.position = transform.position;
         }
     }
 }
