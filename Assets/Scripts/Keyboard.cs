@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Keyboard : MonoBehaviour
 {
-    public TMPro.TMP_Text NameText;
-    public string Text = "";
+    [SerializeField] TMPro.TMP_Text NameText;
+    [SerializeField] string Text = "";
 
     public void KeyPressed (string input)
     {

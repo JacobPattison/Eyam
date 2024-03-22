@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject PatientPrefab;
-    public GameObject UsernameInputPrefab;
-    public GameObject TreatmentKitPrefab;
+    [SerializeField] GameObject PatientPrefab;
+    [SerializeField] GameObject UsernameInputPrefab;
+    [SerializeField] GameObject TreatmentKitPrefab;
 
-    public TMPro.TMP_Text CurrentTimeText;
-    public TMPro.TMP_Text DebugText;
+    [SerializeField] TMPro.TMP_Text CurrentTimeText;
+    [SerializeField] TMPro.TMP_Text DebugText;
 
     public static bool IsPlaying = false;
     public static int PatientsHealed;
     public static float CurrentTime;
-    public int PatientAmount;
+    public static int PatientAmount;
 
     public Vector3[] PatientSpawnPoints;
 
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
         PatientsHealed = 0;
         CurrentTime = 0.0f;
         SpawnPatients();
-        SpawnTreatmentKits(PatientAmount);
+        SpawnTreatmentKit();
         DebugLog("Start Game");
     }
 
@@ -79,13 +80,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SpawnTreatmentKits(int amount)
+    public void SpawnTreatmentKit()
     {
-        for (int treatmentKit = 0; treatmentKit < amount; treatmentKit++)
-        {
-            float offSet = treatmentKit * 0.2f;
-            Instantiate(TreatmentKitPrefab, new Vector3(0.3f + offSet, 0.7f, -2.5f), Quaternion.identity);
-            DebugLog("Treatment Kit Spawned");
-        }
+        Instantiate(TreatmentKitPrefab, new Vector3(0.3f, 0.7f, -2.5f), Quaternion.identity);
+        DebugLog("Treatment Kit Spawned");
     }
 }

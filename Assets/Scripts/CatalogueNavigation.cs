@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class CatalogueNavigation : MonoBehaviour
 {
-    public TMPro.TMP_Text Title;
-    public TMPro.TMP_Text Information;
+    [SerializeField] TMPro.TMP_Text Title;
+    [SerializeField] TMPro.TMP_Text Information;
 
     public Text[] InformationText;
 
-    // Start is called before the first frame update
     void Start()
     {
         string title = InformationText[0].text.Split('@')[0];

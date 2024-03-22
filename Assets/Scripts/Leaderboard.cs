@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
-    public TMPro.TMP_Text LeaderboardText;
+    [SerializeField] TMPro.TMP_Text LeaderboardText;
     public static List<string> players = new List<string>();
 
     public void UpdateLeaderboard()

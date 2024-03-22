@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class TreatmentKitPlacer : MonoBehaviour
 {
-    public bool IsPlaced = false;
+    [SerializeField] TMPro.TMP_Text DebugText;
+
+    [SerializeField] bool IsPlaced = false;
+    [SerializeField] GameObject PlacementTransform;
+
+    private void Start()
+    {
+        PlacementTransform = new GameObject();
+        PlacementTransform.transform.position = transform.position;
+        PlacementTransform.transform.rotation = transform.rotation;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.tag == "Treatment Kit" && IsPlaced == false)
         {
-            GameManager.PatientsHealed++;
             IsPlaced = true;
-            other.gameObject.transform.position = transform.position;
+            other.gameObject.transform.position = PlacementTransform.transform.position;
+            DebugText.text += "\r\nPlacer Triggered";
         }
+        */
     }
 }
