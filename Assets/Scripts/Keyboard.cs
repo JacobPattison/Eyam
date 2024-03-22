@@ -17,7 +17,7 @@ public class Keyboard : MonoBehaviour
         else if (character == '&') // Enter
         {
             Leaderboard.players.Add(Text + ": " + GameManager.CurrentTime.ToString("0:00"));
-            // Need to update leaderboard here
+            Leaderboard.Instance.UpdateLeaderboard();
         }
         else // Character
         {

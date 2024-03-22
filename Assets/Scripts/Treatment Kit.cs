@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreatmentKit : MonoBehaviour
@@ -7,6 +5,7 @@ public class TreatmentKit : MonoBehaviour
     [SerializeField] TMPro.TMP_Text DebugText;
 
     [SerializeField] GameObject UpdateTransform;
+    [SerializeField] GameObject TreatmentKitPrefab;
     [SerializeField] Transform Controller;
 
     public static bool Triggered;
@@ -51,6 +50,9 @@ public class TreatmentKit : MonoBehaviour
             transform.position = other.gameObject.transform.position;
             transform.rotation = other.gameObject.transform.rotation;
             DebugText.text += "\r\nPlacer Triggered";
+            Destroy(other.gameObject);
+            // New Questionn
+            Instantiate(TreatmentKitPrefab, new Vector3(0.3f, 0.7f, -2.5f), Quaternion.identity);
         }
     }
     private void OnTriggerExit(Collider other)

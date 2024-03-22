@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugText: {fileID: 0}
   UpdateTransform: {fileID: 0}
+  TreatmentKitPrefab: {fileID: 2752213095040540085}
   Controller: {fileID: 0}
 --- !u!54 &4098105748717050170
 Rigidbody:
