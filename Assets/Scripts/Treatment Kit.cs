@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class TreatmentKit : MonoBehaviour
@@ -17,6 +18,18 @@ public class TreatmentKit : MonoBehaviour
         UpdateTransform.transform.position = transform.position;
         UpdateTransform.transform.rotation = transform.rotation;
         Placed = false;
+
+        GameObject findDebugText;
+        findDebugText = GameObject.FindGameObjectWithTag("Debug Text");
+        foreach (Transform childTransform in findDebugText.transform)
+        {
+            TMP_Text w = childTransform.GetComponent<TMP_Text>();
+            if (w != null)
+            {
+                DebugText = w;
+                DebugText.text += "\r\nDebug Text Found";
+            }
+        }
     }
 
     void Update()

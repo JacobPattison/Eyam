@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +24,7 @@ public class Question : MonoBehaviour
         QuestionText.text = QuestionDetails[0];
     }
 
+    /*
     public static void Answer (string option)
     {
         string[] QuestionDetails = Questions[CurrentQuestion].text.Split('@');
@@ -38,4 +38,5 @@ public class Question : MonoBehaviour
 
         }
     }
+    */
 }
